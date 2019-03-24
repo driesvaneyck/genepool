@@ -122,10 +122,10 @@ class continious_play_2():
         self.tiletypes = tiletypes
         self.turn = 0
         self.bb = bag(tiletypes)
-        self.bb.add_tile_amount(0,0,5)
-        self.bb.add_tile_amount(1,0,5)
-        self.bb.add_tile_amount(2,0,5)
-        self.bb.add_tile_amount(3,0,5)
+        self.bb.add_tile_amount(0,0,7)
+        self.bb.add_tile_amount(1,0,7)
+        self.bb.add_tile_amount(2,0,7)
+        self.bb.add_tile_amount(3,0,7)
         self.bb.shuffle_bag()
         self.sb = bag(tiletypes)
         self.sb.add_tile_amount(0,0,3)
@@ -279,8 +279,8 @@ class continious_play_2():
         # final_composition = np.add(bag.bag_composition(0),bag.bag_composition(2))
         order = bag.composition_order(bag_composition)
         score = 0
-        for x in order:
-            if x <= 1:
+        for x in range(len(order)):
+            if order[x] <= 1:
                 score += bag_composition[x]
             else:
                 score -= bag_composition[x]
@@ -358,7 +358,7 @@ class continious_play_2():
             else:
                 print biglist[i].get_id()
 
-for xxy in range(50):
+for xxy in range(30):
 
     ng = continious_play_2(4)
     info = []
